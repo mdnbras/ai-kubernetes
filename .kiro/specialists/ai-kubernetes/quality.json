@@ -1,0 +1,6 @@
+{
+  "packageScripts": ["k8s:lint", "k8s:validate", "helm:lint", "test:k8s"],
+  "commands": [],
+  "runTerraformCompanion": true,
+  "environment": { "CI": "true" }
+}

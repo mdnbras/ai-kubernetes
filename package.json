@@ -1,0 +1,10 @@
+{
+  "name": "ai-kubernetes",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node tools/validate-package.mjs",
+    "quality": "node .kiro/specialists/ai-kubernetes/tools/run-kubernetes-quality.mjs"
+  }
+}

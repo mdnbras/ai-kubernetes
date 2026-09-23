@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "name": "ai-kubernetes",
+  "version": "0.1.0",
+  "description": "Pacote de agentes Kiro para workloads e plataformas Kubernetes em EKS e on-premises.",
+  "entryAgent": "specialists/ai-kubernetes/orchestrator",
+  "companions": ["ai-aws", "ai-terraform"],
+  "capabilities": ["kubernetes", "eks", "on-premises", "workloads", "helm", "kustomize", "networking", "security", "reliability", "upgrades"],
+  "exports": [
+    { "kind": "agents", "source": ".kiro/agents", "target": "agents/specialists/ai-kubernetes" },
+    { "kind": "skills", "source": ".kiro/skills", "target": "skills" },
+    { "kind": "steering", "source": ".kiro/steering", "target": "steering", "filePrefix": "ai-kubernetes-" },
+    { "kind": "hooks", "source": ".kiro/hooks", "target": "hooks", "filePrefix": "ai-kubernetes-" },
+    { "kind": "runtime", "source": ".kiro/specialists/ai-kubernetes", "target": "specialists/ai-kubernetes" }
+  ]
+}

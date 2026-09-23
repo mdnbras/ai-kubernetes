@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Kubernetes task readiness",
+      "trigger": "PreTaskExecution",
+      "action": { "type": "agent", "prompt": "Confirme cluster, contexto, ambiente, versão, distribuição/EKS, namespace, owner, GitOps e blast radius. Não execute operação no cluster; delegue AWS e Terraform quando instalados." }
+    },
+    {
+      "name": "Kubernetes quality after task",
+      "trigger": "PostTaskExecution",
+      "action": { "type": "command", "command": "node .kiro/specialists/ai-kubernetes/tools/run-kubernetes-quality.mjs" },
+      "timeout": 1200
+    }
+  ]
+}
