@@ -23,11 +23,12 @@ for (const step of steps) {
   if (result.error || result.status !== 0) { console.error(result.error?.message ?? `Quality gate Kubernetes falhou com código ${result.status}.`); process.exit(result.status ?? 1); }
 }
 const terraformRunner = join(root, ".kiro", "specialists", "ai-terraform", "tools", "run-terraform-quality.mjs");
+let ranTerraformCompanion = false;
 if (config.runTerraformCompanion && process.env.AISDLC_SKIP_TERRAFORM_COMPANION !== "1" && await exists(terraformRunner)) {
   console.log("Executando quality gate companion ai-terraform.");
   const result = spawnSync(process.execPath, [terraformRunner], { cwd: root, stdio: "inherit", env: process.env });
   if (result.error || result.status !== 0) { console.error(result.error?.message ?? `Companion Terraform falhou com código ${result.status}.`); process.exit(result.status ?? 1); }
+  ranTerraformCompanion = true;
 }
-if (!steps.length && !await exists(terraformRunner)) console.log("WARN: nenhum quality gate Kubernetes foi configurado no projeto.");
+if (!steps.length && !ranTerraformCompanion) console.log("WARN: nenhum quality gate Kubernetes foi configurado no projeto.");
 else console.log("Quality gate Kubernetes concluído com sucesso.");
-

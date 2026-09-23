@@ -36,3 +36,9 @@ npm run specialist -- install ai-aws --target C:\MyPath\minha-plataforma
 npm run specialist -- install ai-terraform --target C:\MyPath\minha-plataforma
 ```
 
+## Referências
+
+- [Kubernetes: ambiente de produção](https://kubernetes.io/docs/setup/production-environment/)
+- [Kubernetes Security](https://kubernetes.io/docs/concepts/security/)
+- [Kubernetes Security Checklist](https://kubernetes.io/docs/concepts/security/security-checklist/)
+- [Amazon EKS Best Practices Guide](https://docs.aws.amazon.com/eks/latest/best-practices/introduction.html)
